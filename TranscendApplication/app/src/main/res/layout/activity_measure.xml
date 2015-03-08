@@ -17,12 +17,19 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/glucometer"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Blood Glucose"
                 android:id="@+id/textView"
+                android:layout_weight="1"
                 android:background="#ff29fcff" />
 
             <TextView
@@ -31,13 +38,10 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
                 android:id="@+id/glucoseLabel"
-                android:layout_weight="0"
+                android:layout_weight="1"
                 android:editable="true" />
 
-            <ImageView
-                android:layout_height="100dp"
-                android:layout_width="100dp"
-                android:src="@drawable/top_left"/>
+
 
         </TableRow>
 
@@ -46,11 +50,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/blood_pressure_cuff"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Blood Pressure"
+                android:layout_weight="1"
                 android:id="@+id/textView2"
                 android:background="#ff21ff62" />
 
@@ -59,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/pressureLabel"
                 android:editable="true" />
 
@@ -69,11 +81,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/spirometer"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Respiratory Rate"
+                android:layout_weight="1"
                 android:id="@+id/textView3"
                 android:background="#ffada9ff" />
 
@@ -82,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/respiratoryLabel"
                 android:editable="true" />
         </TableRow>
@@ -91,11 +111,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/weighing_scale"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Weight"
+                android:layout_weight="1"
                 android:id="@+id/textView4"
                 android:autoText="false"
                 android:background="#ffffba9b" />
@@ -105,6 +132,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/weightLabel"
                 android:editable="true" />
         </TableRow>
@@ -114,11 +142,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/thermometer"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Temperature"
+                android:layout_weight="1"
                 android:id="@+id/textView5"
                 android:background="#fffffd42" />
 
@@ -127,6 +162,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/temperatureLabel"
                 android:editable="true" />
         </TableRow>
