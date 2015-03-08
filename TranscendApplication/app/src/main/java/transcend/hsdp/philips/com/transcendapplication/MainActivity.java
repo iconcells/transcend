@@ -14,6 +14,11 @@ public class MainActivity extends ActionBarActivity {
         startActivity(intent);
     }
 
+    public void goToMeasurePage(View view) {
+        Intent intent = new Intent(this, MeasureActivity.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

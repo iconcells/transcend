@@ -20,11 +20,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".LandingPageActivity"
-            android:label="@string/title_activity_measure"
-            android:parentActivityName=".MainActivity" >
-        </activity>
-        <activity
             android:name=".MeasureActivity"
             android:label="@string/title_activity_landing_page"
             android:parentActivityName=".MainActivity" >
