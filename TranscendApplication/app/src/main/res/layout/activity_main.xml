@@ -81,7 +81,8 @@
                 android:text="Lily"
                 android:background="#ffc63e"
                 android:id="@+id/button4"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:onClick="callCaseManager" />
 
             <Button
                 android:layout_width="wrap_content"

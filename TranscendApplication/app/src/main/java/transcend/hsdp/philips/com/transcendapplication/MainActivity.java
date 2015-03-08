@@ -6,12 +6,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.content.Intent;
 import android.view.View;
+import android.net.Uri;
 
 public class MainActivity extends ActionBarActivity {
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, MeasureActivity.class);
-        startActivity(intent);
+    public void callCaseManager(View view) {
+        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        callIntent.setData(Uri.parse("tel:5556"));
+        startActivity(callIntent);
     }
 
     public void goToMeasurePage(View view) {

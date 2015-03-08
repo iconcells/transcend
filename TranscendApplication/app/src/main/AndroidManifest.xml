@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-            android:label="Sherpa Home" >
+            android:label="Sherpa" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
