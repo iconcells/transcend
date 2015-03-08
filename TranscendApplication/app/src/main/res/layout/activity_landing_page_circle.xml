@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton"
                 android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left" />
+                android:src="@drawable/top_left" />
 
             <ImageButton
                 android:layout_width="wrap_content"
@@ -67,8 +67,8 @@
             android:id="@+id/fifthImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="50dp"
-            android:paddingRight="50dp"
+            android:paddingLeft="90dp"
+            android:paddingRight="90dp"
             android:layout_centerInParent="true"
             android:src="@drawable/aggregate_score_alert"/>
 
