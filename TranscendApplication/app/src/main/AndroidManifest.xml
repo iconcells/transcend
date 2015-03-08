@@ -27,6 +27,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="transcend.hsdp.philips.com.transcendapplication.MainActivity" />
         </activity>
+        <activity
+            android:name=".MovesActivity"
+            android:label="@string/title_activity_landing_page"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="transcend.hsdp.philips.com.transcendapplication.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
