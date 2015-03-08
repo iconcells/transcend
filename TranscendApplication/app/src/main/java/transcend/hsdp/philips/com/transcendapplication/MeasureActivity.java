@@ -8,6 +8,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.util.Log;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
 
 import com.philips.hsdp.feed.LoginManager;
 import com.philips.hsdp.feed.ObservationFeed;
@@ -58,9 +62,30 @@ public class MeasureActivity extends ActionBarActivity {
             isLoggedIn = true;
             ((TextView)findViewById(R.id.pat_data)).setText(mPatientUrlLink);
             //String inWhatObservations = "http://loinc.org|8480-6, http://loinc.org|3141-9, http://loinc.org|2339-0, http://loinc.org|8867-4";
-            String inWhatObservations = "http://loinc.org|8867-4";
+            String inWhatObservations = "http://loinc.org|5902-2"; // temperature
+            //String inWhatObservations = "http://loinc.org|8478-0,http://loinc.org|3141-9,https://rtmms.nist.gov|8454258,https://rtmms.nist.gov|151562,http://loinc.org|2339-0,http://loinc.org|8310-5"; // blood pressure
+
+            //2014-12-05T15:08:00-05:00
+            Calendar rightNow = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.US);
+
+            rightNow.add(Calendar.MONTH,-4);
+            rightNow.add(Calendar.DAY_OF_YEAR,-1);
+            //rightNow.add(Calendar.MONTH,-4);
+            String before = ">=" + sdf.format(rightNow.getTime());
+            Log.i("before time" , before);
+
+            rightNow.add(Calendar.DAY_OF_YEAR,+10);
+            //rightNow.add(Calendar.MONTH,1);
+            String after = "<=" + sdf.format(rightNow.getTime());
+            Log.i("after time" , after);
+
+            before = null;
+            after = null;
+            //inWhatObservations = null;
+
             final String observationFeedUrl = ObservationFeed.generateObservationUrl(
-                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, null, null);
+                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
 
             Log.i("HS", "ObservationFeedUrl: " + observationFeedUrl);
             mObservationFeed.setFeedUrl(observationFeedUrl);
@@ -73,9 +98,8 @@ public class MeasureActivity extends ActionBarActivity {
                     Log.i("HS", "Got observation data ");
                     ((TextView)findViewById(R.id.pat_data)).setText(mObservationFeed.getObservationList().toString());
 
-
                     for(HSDPObservation observation : mObservationFeed.getObservationList()) {
-                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue());
+                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
                     }
                 }
             });

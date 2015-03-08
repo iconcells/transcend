@@ -77,6 +77,10 @@ public class ObservationFeed extends FeedManager
 
             if (inDate2 != null)
                 url += "&date=" + URLEncoder.encode(inDate2, "UTF-8");
+
+            url += "&_pretty=true";
+            url += "&_sort:desc=date";
+
         } catch (UnsupportedEncodingException e)
         {
             e.printStackTrace();
@@ -96,7 +100,7 @@ public class ObservationFeed extends FeedManager
     @Override
     public boolean handleResponse (JsonObject inJsonComplete)
     {
-        //Log.i("HS", "--- Received Observation Json Data");
+        Log.i("HS", "--- Received Observation Json Data" + inJsonComplete);
         mObservations.clear();
 
         JsonParser fhirJsonParser = new JsonParser();
