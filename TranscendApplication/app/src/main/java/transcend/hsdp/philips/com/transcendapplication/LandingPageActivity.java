@@ -4,27 +4,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.content.Intent;
-import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
 
-    public void sendMessage(View view) {
-        Intent intent = new Intent(this, LandingPageActivity.class);
-        startActivity(intent);
-    }
+public class LandingPageActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_landing_page);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_landing_page, menu);
         return true;
     }
 

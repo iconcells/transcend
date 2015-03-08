@@ -6,4 +6,6 @@
     <string name="main_menu_text">Transcend</string>
     <string name="measure_str">measure</string>
     <string name="title_activity_measure">MeasureActivity</string>
+    <string name="title_activity_landing_page">LandingPageActivity</string>
+    <string name="setup_str">Setup</string>
 </resources>
