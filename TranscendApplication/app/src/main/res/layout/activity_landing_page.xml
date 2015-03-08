@@ -1,4 +1,4 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="fill_parent"
     android:layout_height="fill_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -6,59 +6,16 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="transcend.hsdp.philips.com.transcendapplication.LandingPageActivity">
 
+
+
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_height="match_parent">
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_alignParentStart="true"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton"
-                android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
-                android:adjustViewBounds="true" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton2"
-                android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
-                android:adjustViewBounds="true" />
-
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton3"
-                android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
-                android:adjustViewBounds="true" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageButton4"
-                android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
-                android:cropToPadding="false"
-                android:adjustViewBounds="true" />
-
-        </TableRow>
+        <include android:id="@+id/news_title"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        layout="@layout/activity_landing_page_circle"/>
 
         <TableRow
             android:layout_width="fill_parent"
@@ -82,17 +39,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Button"
-                android:id="@+id/button3"
+                android:id="@+id/button4"
                 android:layout_weight="0.5" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="New Button"
-                android:id="@+id/button4"
-                android:layout_weight="0.5" />
+                android:id="@+id/button3"
+                android:layout_weight="0.5"
+                android:layout_column="2" />
         </TableRow>
 
     </TableLayout>
 
-</RelativeLayout>
+</merge>
