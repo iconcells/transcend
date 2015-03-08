@@ -4,9 +4,15 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.content.Intent;
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
+
+    public void sendMessage(View view) {
+        Intent intent = new Intent(this, MeasureActivity.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
