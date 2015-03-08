@@ -23,11 +23,14 @@ import java.util.Observer;
 
 public class MeasureActivity extends ActionBarActivity {
 
-    private static String loginName = "sam.s.smith", loginPwd = "MyFood4Health!";
-    private boolean isLoggedIn = false;
-    ObservationFeed mObservationFeed = null;
-    private String mPatientUrlLink;
-    private static String GLUCOSE_STR = "Blood Glucose", WEIGHT_STR = "Weight";
+    public static String loginName = "sam.s.smith", loginPwd = "MyFood4Health!";
+    ObservationFeed glucoseFeed = null, pressureFeed = null;
+    ObservationFeed respiratoryFeed = null, weightFeed = null, temperatureFeed = null;
+    private String mPatientUrlLink = null;
+
+    private static String GLUCOSE_STR = "http://loinc.org|2339-0", PRESSURE_STR = "http://loinc.org|8478-0";
+    private static String RESPIRATORY_RATE_STR = "https://rtmms.nist.gov|151562", WEIGHT_STR = "http://loinc.org|3141-9";
+    private static String TEMPERATURE_STR = "http://loinc.org|8310-5";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +43,15 @@ public class MeasureActivity extends ActionBarActivity {
             @Override
             public void update(Observable observable, Object data)
             {
-                //Log.i("HS", "HERE------");
                 handleLoginResponse();
             }
         });
 
-        mObservationFeed = ObservationFeed.getInstance();
+        glucoseFeed = ObservationFeed.getNewInstance();
+        pressureFeed = ObservationFeed.getNewInstance();
+        respiratoryFeed = ObservationFeed.getNewInstance();
+        weightFeed = ObservationFeed.getNewInstance();
+        temperatureFeed = ObservationFeed.getNewInstance();
 
 
         LoginManager.getInstance().authenticate(loginName, loginPwd, null);
@@ -59,53 +65,115 @@ public class MeasureActivity extends ActionBarActivity {
             Log.i("HS", "LOGGED IN");
 
             mPatientUrlLink = LoginManager.getInstance().getPatientUrlIdString();
-            isLoggedIn = true;
-            ((TextView)findViewById(R.id.pat_data)).setText(mPatientUrlLink);
-            //String inWhatObservations = "http://loinc.org|8480-6, http://loinc.org|3141-9, http://loinc.org|2339-0, http://loinc.org|8867-4";
-            String inWhatObservations = "http://loinc.org|5902-2"; // temperature
-            //String inWhatObservations = "http://loinc.org|8478-0,http://loinc.org|3141-9,https://rtmms.nist.gov|8454258,https://rtmms.nist.gov|151562,http://loinc.org|2339-0,http://loinc.org|8310-5"; // blood pressure
+            String before =null, after =null;
 
-            //2014-12-05T15:08:00-05:00
-            Calendar rightNow = Calendar.getInstance();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ", Locale.US);
-
-            rightNow.add(Calendar.MONTH,-4);
-            rightNow.add(Calendar.DAY_OF_YEAR,-1);
-            //rightNow.add(Calendar.MONTH,-4);
-            String before = ">=" + sdf.format(rightNow.getTime());
-            Log.i("before time" , before);
-
-            rightNow.add(Calendar.DAY_OF_YEAR,+10);
-            //rightNow.add(Calendar.MONTH,1);
-            String after = "<=" + sdf.format(rightNow.getTime());
-            Log.i("after time" , after);
-
-            before = null;
-            after = null;
-            //inWhatObservations = null;
-
-            final String observationFeedUrl = ObservationFeed.generateObservationUrl(
+            String inWhatObservations = GLUCOSE_STR;
+            String glucoseObservationFeedUrl = ObservationFeed.generateObservationUrl(
                     mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
-
-            Log.i("HS", "ObservationFeedUrl: " + observationFeedUrl);
-            mObservationFeed.setFeedUrl(observationFeedUrl);
-            mObservationFeed.addObserver(new Observer()
+            Log.i("HS", "ObservationFeedUrl: " + glucoseObservationFeedUrl);
+            glucoseFeed.setFeedUrl(glucoseObservationFeedUrl);
+            glucoseFeed.addObserver(new Observer()
             {
                 @Override
                 public void update(Observable observable, Object data)
                 {
-                    //refreshObservationView();
                     Log.i("HS", "Got observation data ");
-                    ((TextView)findViewById(R.id.pat_data)).setText(mObservationFeed.getObservationList().toString());
-
-                    for(HSDPObservation observation : mObservationFeed.getObservationList()) {
+                    for(HSDPObservation observation : glucoseFeed.getObservationList()) {
                         Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
+                        TextView text = (TextView) findViewById(R.id.glucoseLabel);
+                        text.setText(observation.getObservationValue());
+                        break;
                     }
                 }
             });
 
 
-            pollBloodPressure();
+            inWhatObservations = PRESSURE_STR;
+            String pressureObservationFeedUrl = ObservationFeed.generateObservationUrl(
+                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
+            Log.i("HS", "ObservationFeedUrl: " + pressureObservationFeedUrl);
+            pressureFeed.setFeedUrl(pressureObservationFeedUrl);
+            pressureFeed.addObserver(new Observer()
+            {
+                @Override
+                public void update(Observable observable, Object data)
+                {
+                    Log.i("HS", "Got observation data ");
+                    for(HSDPObservation observation : pressureFeed.getObservationList()) {
+                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
+                        TextView text = (TextView) findViewById(R.id.pressureLabel);
+                        text.setText(observation.getObservationValue());
+                        break;
+                    }
+                }
+            });
+
+
+            inWhatObservations = RESPIRATORY_RATE_STR;
+            String rrObservationFeedUrl = ObservationFeed.generateObservationUrl(
+                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
+            Log.i("HS", "ObservationFeedUrl: " + rrObservationFeedUrl);
+            respiratoryFeed.setFeedUrl(rrObservationFeedUrl);
+            respiratoryFeed.addObserver(new Observer()
+            {
+                @Override
+                public void update(Observable observable, Object data)
+                {
+                    Log.i("HS", "Got observation data ");
+                    for(HSDPObservation observation : respiratoryFeed.getObservationList()) {
+                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
+                        TextView text = (TextView) findViewById(R.id.respiratoryLabel);
+                        text.setText(observation.getObservationValue());
+                        break;
+                    }
+                }
+            });
+
+
+            inWhatObservations = WEIGHT_STR;
+            String weightObservationFeedUrl = ObservationFeed.generateObservationUrl(
+                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
+            Log.i("HS", "ObservationFeedUrl: " + weightObservationFeedUrl);
+            weightFeed.setFeedUrl(weightObservationFeedUrl);
+            weightFeed.addObserver(new Observer()
+            {
+                @Override
+                public void update(Observable observable, Object data)
+                {
+                    Log.i("HS", "Got observation data ");
+                    for(HSDPObservation observation : weightFeed.getObservationList()) {
+                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
+                        TextView text = (TextView) findViewById(R.id.weightLabel);
+                        text.setText(observation.getObservationValue());
+                        break;
+                    }
+                }
+            });
+
+            inWhatObservations = TEMPERATURE_STR;
+            String temperatureObservationFeedUrl = ObservationFeed.generateObservationUrl(
+                    mPatientUrlLink.replace("/Patient/", ""), inWhatObservations, before, after);
+            Log.i("HS", "ObservationFeedUrl: " + temperatureObservationFeedUrl);
+            temperatureFeed.setFeedUrl(temperatureObservationFeedUrl);
+            temperatureFeed.addObserver(new Observer()
+            {
+                @Override
+                public void update(Observable observable, Object data)
+                {
+                    Log.i("HS", "Got observation data ");
+                    for(HSDPObservation observation : temperatureFeed.getObservationList()) {
+                        Log.i("HS", observation.getObservationName() + " -- " + observation.getObservationValue() + "--" + observation.getAppliedDateTimeHumanReadableString());
+                        TextView text = (TextView) findViewById(R.id.temperatureLabel);
+                        text.setText(observation.getObservationValue());
+                        break;
+                    }
+                }
+            });
+
+
+
+
+            pollCurrentObservations();
         }
         else
         {
@@ -114,8 +182,12 @@ public class MeasureActivity extends ActionBarActivity {
 
     }
 
-    private void pollBloodPressure() {
-        mObservationFeed.refresh();
+    private void pollCurrentObservations() {
+        glucoseFeed.refresh();
+        pressureFeed.refresh();
+        respiratoryFeed.refresh();
+        weightFeed.refresh();
+        temperatureFeed.refresh();
     }
 
 
