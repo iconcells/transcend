@@ -82,10 +82,11 @@ public class ObservationFeed extends FeedManager
             e.printStackTrace();
         }
 
-        //Log.i("HS", url);
+        Log.i("kanand### HS", url);
 
         return url;
     }
+
 
     public List<HSDPObservation> getObservationList()
     {

@@ -10,7 +10,7 @@ import android.view.View;
 public class MainActivity extends ActionBarActivity {
 
     public void sendMessage(View view) {
-        Intent intent = new Intent(this, LandingPageActivity.class);
+        Intent intent = new Intent(this, MeasureActivity.class);
         startActivity(intent);
     }
 

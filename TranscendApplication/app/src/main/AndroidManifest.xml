@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="transcend.hsdp.philips.com.transcendapplication" >
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,12 +20,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MeasureActivity"
+            android:name=".LandingPageActivity"
             android:label="@string/title_activity_measure"
             android:parentActivityName=".MainActivity" >
         </activity>
         <activity
-            android:name=".LandingPageActivity"
+            android:name=".MeasureActivity"
             android:label="@string/title_activity_landing_page"
             android:parentActivityName=".MainActivity" >
             <meta-data
