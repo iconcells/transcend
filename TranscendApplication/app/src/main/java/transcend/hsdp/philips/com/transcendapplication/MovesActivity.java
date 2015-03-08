@@ -2,7 +2,10 @@ package transcend.hsdp.philips.com.transcendapplication;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -20,7 +23,7 @@ import java.util.Observer;
 /**
  * Created by karthshe on 3/7/15.
  */
-public class MovesActivity extends Activity {
+public class MovesActivity extends ActionBarActivity {
 
     public static String loginName = "mark.taylor", loginPwd = "Going4ther$";
     //public static String loginName = "sam.s.smith", loginPwd = "MyFood4Health!";
@@ -103,6 +106,30 @@ public class MovesActivity extends Activity {
     private void pollCurrentObservations() {
         stepsFeed.refresh();
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_move, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
 
 
 }
