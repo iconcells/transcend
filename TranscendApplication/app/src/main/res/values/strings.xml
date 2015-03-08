@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TranscendApplication</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="main_menu_text">Transcend</string>
+    <string name="measure_str">measure</string>
+    <string name="title_activity_measure">MeasureActivity</string>
+</resources>
