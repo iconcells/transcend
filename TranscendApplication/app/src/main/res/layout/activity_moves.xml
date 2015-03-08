@@ -20,6 +20,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="Goal"
+                android:id="@+id/textView2"
+                android:background="#ff21ff62" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="12000 steps"
+                android:id="@+id/goalLabel"
+                android:editable="true" />
+
+        </TableRow>
+
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Steps Taken"
                 android:id="@+id/textView"
                 android:background="#ff29fcff" />
@@ -29,34 +53,12 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
-                android:id="@+id/glucoseLabel"
+                android:id="@+id/stepsLabel"
                 android:layout_weight="0"
                 android:editable="true" />
 
         </TableRow>
 
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Goal"
-                android:id="@+id/textView2"
-                android:background="#ff21ff62" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Not Available"
-                android:id="@+id/pressureLabel"
-                android:editable="true" />
-
-        </TableRow>
 
         <TableRow
             android:layout_width="fill_parent"
@@ -67,7 +69,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Diet"
+                android:text="Dist"
                 android:id="@+id/textView3"
                 android:background="#ffada9ff" />
 
@@ -76,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
-                android:id="@+id/respiratoryLabel"
+                android:id="@+id/dietLabel"
                 android:editable="true" />
         </TableRow>
 
@@ -89,7 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Calorie intake"
+                android:text="Calories burnt"
                 android:id="@+id/textView4"
                 android:autoText="false"
                 android:background="#ffffba9b" />
@@ -98,30 +100,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Not Available"
-                android:id="@+id/weightLabel"
-                android:editable="true" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Other Info"
-                android:id="@+id/textView5"
-                android:background="#fffffd42" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Not Available"
-                android:id="@+id/temperatureLabel"
+                android:text="473 cal"
+                android:id="@+id/calorieLabel"
                 android:editable="true" />
         </TableRow>
 
