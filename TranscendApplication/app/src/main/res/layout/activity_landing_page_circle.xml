@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton2"
                 android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
+                android:src="@drawable/top_right"
                 android:onClick="goToMeasurePage" />
 
         </TableRow>
@@ -45,14 +45,14 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton3"
                 android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left" />
+                android:src="@drawable/bottom_left" />
 
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton4"
                 android:layout_weight="0.5"
-                android:src="@drawable/arrow_curve_left"
+                android:src="@drawable/bottom_right"
                 android:onClick="goToMovesPage"/>
 
         </TableRow>

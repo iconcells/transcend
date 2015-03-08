@@ -12,7 +12,8 @@
         android:layout_height="fill_parent">
 
         <TableRow
-            android:layout_width="fill_parent"
+            android:stretchColumns="0,1,2"
+            android:layout_width="match_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
@@ -32,6 +33,11 @@
                 android:id="@+id/glucoseLabel"
                 android:layout_weight="0"
                 android:editable="true" />
+
+            <ImageView
+                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:src="@drawable/top_left"/>
 
         </TableRow>
 
