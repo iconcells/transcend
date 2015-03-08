@@ -16,11 +16,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/stairs_up"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Goal"
+                android:layout_weight="1"
                 android:id="@+id/textView2"
                 android:background="#ff21ff62" />
 
@@ -29,6 +36,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="12000 steps"
+                android:layout_weight="1"
                 android:id="@+id/goalLabel"
                 android:editable="true" />
 
@@ -40,11 +48,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/steps_meter"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Steps Taken"
+                android:layout_weight="1"
                 android:id="@+id/textView"
                 android:background="#ff29fcff" />
 
@@ -53,8 +68,8 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/stepsLabel"
-                android:layout_weight="0"
                 android:editable="true" />
 
         </TableRow>
@@ -65,11 +80,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/walking"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Dist"
+                android:layout_weight="1"
                 android:id="@+id/textView3"
                 android:background="#ffada9ff" />
 
@@ -78,6 +100,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Not Available"
+                android:layout_weight="1"
                 android:id="@+id/dietLabel"
                 android:editable="true" />
         </TableRow>
@@ -87,11 +110,18 @@
             android:layout_height="fill_parent"
             android:layout_weight="1">
 
+            <ImageView
+                android:layout_height="50dp"
+                android:layout_width="50dp"
+                android:layout_weight="1"
+                android:src="@drawable/walking"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Calories burnt"
+                android:layout_weight="1"
                 android:id="@+id/textView4"
                 android:autoText="false"
                 android:background="#ffffba9b" />
@@ -101,6 +131,7 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="473 cal"
+                android:layout_weight="1"
                 android:id="@+id/calorieLabel"
                 android:editable="true" />
         </TableRow>

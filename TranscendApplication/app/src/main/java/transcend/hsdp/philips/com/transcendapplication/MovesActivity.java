@@ -84,7 +84,7 @@ public class MovesActivity extends Activity {
                         int steps = (int) stepsDbl;
                         int distance = (int) ((double)steps * 0.4);
                         TextView textDistance = (TextView) findViewById(R.id.dietLabel);
-                        textDistance.setText(String.valueOf(distance));
+                        textDistance.setText(String.valueOf(distance) + " m");
                         break;
                     }
                 }
